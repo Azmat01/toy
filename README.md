@@ -10,12 +10,12 @@ This is a simple web app for toy sharing between flats in an apartment. Each fla
 
 ## Pages and Their Features
 
-### 1. Login Page (`index.html`)
+### 1. Login Page
 - Enter your flat number.
 - The flat number is saved in sessionStorage.
 - After login, it redirects to the dashboard.
 
-### 2. Toy Dashboard (`dashboard.html`)
+### 2. Toy Dashboard
 - Shows your flat number at the top.
 - Form to upload a toy with:
   - Toy name
@@ -26,7 +26,7 @@ This is a simple web app for toy sharing between flats in an apartment. Each fla
 - Shows the list of toys uploaded by your flat.
 - Displays each toy's current status (Available / Requested).
 
-### 3. Browse & Request Toys Page (`browse.html`)
+### 3. Browse & Request Toys Page 
 - Displays toys shared by other flats.
 - You can:
   - Search for toys by name or keyword
