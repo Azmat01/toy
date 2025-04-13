@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toy Sharing App</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- Login Page -->
+    <div id="loginPage" class="page">
+        <div class="container">
+            <div class="login-content fade-in">
+                <h1>Welcome to ToyShare</h1>
+                <p class="subtitle">Share joy, share toys with your neighbors</p>
+                <div class="login-form slide-up">
+                    <input type="text" id="flatNumber" placeholder="Enter Flat Number">
+                    <button onclick="login()" class="pulse">Enter Community</button>
+                </div>
+            </div>
+        </div>
+        <div class="background-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+        </div>
+    </div>
+
+    <!-- Toy Dashboard -->
+    <div id="toyDashboard" class="page hidden">
+        <div class="container">
+            <header class="slide-down">
+                <div class="header-content">
+                    <h2>My Toy Dashboard</h2>
+                    <p>Flat Number: <span id="currentFlat" class="highlight"></span></p>
+                </div>
+                <div class="header-actions">
+                    <button onclick="showBrowsePage()" class="secondary-btn">Browse Toys</button>
+                    <button onclick="logout()" class="logout-btn">Logout</button>
+                </div>
+            </header>
+
+            <div class="upload-form fade-in">
+                <h3>Share a Toy</h3>
+                <div class="form-grid">
+                    <input type="text" id="toyName" placeholder="Toy Name">
+                    <textarea id="toyDescription" placeholder="Description"></textarea>
+                    <div class="date-inputs">
+                        <div class="date-field">
+                            <label>Available From</label>
+                            <input type="date" id="startDate">
+                        </div>
+                        <div class="date-field">
+                            <label>Available Till</label>
+                            <input type="date" id="endDate">
+                        </div>
+                    </div>
+                    <div class="file-input-container">
+                        <input type="file" id="toyImage" accept="image/*">
+                        <label for="toyImage" class="file-label">Choose Image</label>
+                    </div>
+                    <button onclick="uploadToy()" class="primary-btn">Share Toy</button>
+                </div>
+            </div>
+
+            <div class="my-toys slide-up">
+                <h3>My Shared Toys</h3>
+                <div id="myToysList" class="toys-grid"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Browse Toys -->
+    <div id="browsePage" class="page hidden">
+        <div class="container">
+            <header class="slide-down">
+                <div class="header-content">
+                    <h2>Community Toys</h2>
+                    <div class="search-container">
+                        <input type="text" id="searchToys" placeholder="Search toys..." onkeyup="searchToys()">
+                        <div class="search-icon">🔍</div>
+                    </div>
+                </div>
+                <button onclick="showDashboard()" class="secondary-btn">Back to Dashboard</button>
+            </header>
+
+            <div id="toysList" class="toys-grid fade-in"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
