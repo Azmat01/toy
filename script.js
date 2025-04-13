@@ -26,7 +26,6 @@ function showPage(pageId) {
 function login() {
     const flatNumber = document.getElementById('flatNumber').value.trim();
     if (!flatNumber) {
-        showNotification('Please enter a flat number', 'error');
         return;
     }
     
@@ -34,27 +33,11 @@ function login() {
     document.getElementById('currentFlat').textContent = flatNumber;
     showPage('toyDashboard');
     displayMyToys();
-    showNotification('Welcome to ToyShare!', 'success');
 }
 
 function logout() {
     localStorage.removeItem(STORAGE_KEYS.FLAT);
     showPage('loginPage');
-    showNotification('Logged out successfully', 'success');
-}
-
-// Notification System
-function showNotification(message, type = 'success') {
-    const notification = document.createElement('div');
-    notification.className = `notification ${type} slide-down`;
-    notification.textContent = message;
-    document.body.appendChild(notification);
-
-    // Remove notification after 3 seconds
-    setTimeout(() => {
-        notification.style.opacity = '0';
-        setTimeout(() => notification.remove(), 300);
-    }, 3000);
 }
 
 // Check if user is logged in
@@ -78,7 +61,6 @@ function uploadToy() {
     const imageFile = document.getElementById('toyImage').files[0];
 
     if (!toyName || !description || !startDate || !endDate) {
-        showNotification('Please fill in all required fields', 'error');
         return;
     }
 
@@ -168,7 +150,6 @@ function requestToy(toyId) {
         toys[toyIndex].requestedBy = currentFlat;
         localStorage.setItem(STORAGE_KEYS.TOYS, JSON.stringify(toys));
         displayAllToys();
-        showNotification('Toy requested successfully!', 'success');
     }
 }
 
@@ -182,7 +163,6 @@ function returnToy(toyId) {
         localStorage.setItem(STORAGE_KEYS.TOYS, JSON.stringify(toys));
         displayMyToys();
         displayAllToys();
-        showNotification('Toy marked as returned', 'success');
     }
 }
 
